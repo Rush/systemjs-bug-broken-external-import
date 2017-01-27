@@ -1,0 +1,36 @@
+{
+  "scripts": {
+    "makeBroken": "jspm build appBroken.js out.js --externals dynamic --format cjs",
+    "makeGood": "jspm build appGood.js out.js --externals dynamic --format cjs"
+  },
+  "jspm": {
+    "name": "app",
+    "main": "app.js",
+    "dependencies": {
+      "angular-noVNC": "github:virtkick/angular-noVNC@master",
+      "pako": "npm:pako@^1.0.4"
+    },
+    "devDependencies": {
+      "plugin-babel": "npm:systemjs-plugin-babel@^0.0.19"
+    },
+    "overrides": {
+      "github:virtkick/angular-noVNC@master": {
+        "registry": "npm"
+      },
+      "npm:angular@1.6.1": {
+        "format": "global",
+        "jspmNodeConversion": false,
+        "main": "angular",
+        "meta": {
+          "angular.js": {
+            "exports": "angular",
+            "format": "global"
+          }
+        }
+      }
+    }
+  },
+  "devDependencies": {
+    "jspm": "^0.17.0-beta.35"
+  }
+}
